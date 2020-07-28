@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hubu.myFirstSSM.mapper.AdministratorMapper">
+    <insert id="add" parameterType="Administrator" keyProperty="id" useGeneratedKeys="true">
+        insert into administrator (name,password) values(#{name},#{password})
+    </insert>
+
+    <delete id="delete" parameterType="int">
+        delete from administrator where id = #{id}
+    </delete>
+
+    <update id="update" parameterType="Administrator">
+        update administrator set password=#{password} where name=#{password}
+    </update>
+
+    <select id="get" parameterType="int" resultType="Administrator">
+        select * from administrator where id=#{id}
+    </select>
+
+    <select id="list" resultType="Administrator">
+        select * from administrator
+    </select>
+
+    <select id="getByNameAndPassword"  resultType="Administrator">
+        select * from administrator where name = #{0} and password = #{1}
+    </select>
+
+</mapper>
